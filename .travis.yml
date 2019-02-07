@@ -8,4 +8,4 @@ before_install:
 script:
   - gem install net-http-pipeline -v 1.0.1
   - RAILS_ENV=test bundle exec rake db:create db:migrate
-  - bundle exec rspec test/
+  - bundle exec rspec test/controllers

@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'travis'
 gem 'net-http-pipeline', '1.0.1'
+gem 'rspec'

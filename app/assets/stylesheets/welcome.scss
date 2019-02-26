@@ -1,3 +1,38 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  font-family: "Alegreya";
+  src: font-url('Alegreya.ttf')
+}
+
+body {
+
+}
+.header {
+  text-align: center;
+  background-color: rgb(66,133,244);
+
+}
+
+#site_name {
+  font-family: Alegreya;
+  font-size: 70px;
+  color: white;
+}
+
+#short_desc {
+  font-family: Alegreya;
+  font-size: 30px;
+  color: white;
+}
+/*button
+#start {
+  font-family: Alegreya;
+  font-size: 30px;
+  border-radius: 12px;
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}*/

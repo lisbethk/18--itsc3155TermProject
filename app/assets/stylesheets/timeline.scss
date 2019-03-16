@@ -1,0 +1,20 @@
+// Place all the styles related to the Timeline controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  font-family: "Alegreya";
+  src: font-url('Alegreya.ttf')
+}
+
+.step_main {
+  font-family: Alegreya;
+  font-size: 30px;
+  margin: 50px;
+}
+
+.step_extra {
+  font-family: Alegreya;
+  font-size: 20px;
+  margin-left: 80px;
+}

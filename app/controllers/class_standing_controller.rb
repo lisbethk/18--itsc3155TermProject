@@ -14,9 +14,11 @@ class ClassStandingController < ApplicationController
     elsif params[:senior].present?
       @User.standing = "senior"
     elsif params[:nontraditional].present?
-      @User.standing = "nontraditional"
+      @User.standing = "nonTraditional"
     end
+    @User.experience = "noExperience"
+    @User.goal = "big4"
     @User.save
-    redirect_to welcome_index_path(:user_id => @User.id)
+    redirect_to timeline_index_path(:user_id => @User.id)
   end
 end

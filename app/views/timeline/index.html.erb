@@ -1,0 +1,15 @@
+<div class="header">
+  <h1 id="site_name">CareerQuestions.Dev</h1>
+  <p id="short_desc">A step-by-step guide to getting your first software engineering job.</p>
+</div>
+
+<div class="timeline">
+  <% @user.steps.each do |element| %>
+    <div class ="step_main">
+      <%= element.content %>
+    </div>
+    <div class="step_extra">
+     <%= element.extra %>
+    </div>
+  <% end %>
+</div>

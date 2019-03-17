@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+    font-family: "Alegreya";
+    src: font-url('Alegreya.ttf')
+}
+
+.header {
+    text-align: center;
+    background-color: rgb(66,133,244);
+}
+
+
+#site_name {
+    font-family: Alegreya;
+    font-size: 70px;
+    color: white;
+}
+
+#short_desc {
+    font-family: Alegreya;
+    font-size: 30px;
+    color: white;
+}

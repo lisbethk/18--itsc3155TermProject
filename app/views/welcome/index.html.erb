@@ -1,15 +1,9 @@
-<div class="header">
-  <h1 id="site_name">CareerQuestions.Dev</h1>
-  <p id="short_desc">A step-by-step guide to getting your first software engineering job.</p>
-
-</div>
-
 <div>
   <h2 class="question">I am a <%= @user.standing  %>; I have...</h2>
 </div>
 <div class="answers">
-  <%= button_to "No CS experience", { action: "create" }, :name => 'noxp' %>
-  <%= button_to "Some experience (hackathons/research)", { action: "create" }, :name => 'hackathons'  %>
+  <%= button_to "No CS experience", { action: "create" }, :name => 'noexperience' %>
+  <%= button_to "Some experience (hackathons/summer research)", { action: "create" }, :name => 'someexperience'  %>
   <%= button_to "At least one internship", { action: "create" }, :name => 'internship' %>
 </div>
 

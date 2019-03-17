@@ -2,16 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@font-face {
-  font-family: "Alegreya";
-  src: font-url('Alegreya.ttf')
-}
-
-.header {
-  text-align: center;
-  background-color: rgb(66,133,244);
-
-}
 .question {
   text-align: center;
   font-family: Alegreya;
@@ -38,15 +28,15 @@
   color: white;
 }
 
-
-#site_name {
-  font-family: Alegreya;
-  font-size: 70px;
-  color: white;
-}
-
-#short_desc {
+.page_count {
   font-family: Alegreya;
   font-size: 30px;
-  color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(66,133,244);
+}
+
+.center {
+  margin: 0 auto;
+  width: 50px;
+  margin-top: 50px;
 }

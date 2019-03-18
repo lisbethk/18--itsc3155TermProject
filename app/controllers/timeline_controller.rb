@@ -2,14 +2,13 @@ class TimelineController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     puts(@user.standing)
+    puts(@user.experience)
+    puts(@user.goal)
     generate_steps()
-    puts("==========================")
     @steps_array = Array.new
     @user.steps.each_with_index do |step, index|
         @steps_array[index] = step.content
-        puts (@steps_array[index])
     end
-    puts("==========================")
   end
 
   def generate_steps
@@ -32,7 +31,7 @@ class TimelineController < ApplicationController
     elsif @user.standing == "nonTradidional"
         extra = "Leverage your unique experience but accent relevant CS projects and such"
     end
-    @step.extra = extra + "Check out these great examples:"
+    @step.extra = extra + "\nCheck out these great examples:"
     #@step = @user.steps.create(:content=>"Cover letters: Quantity vs Quality - it's up to you really")
     @step = @user.steps.create(:content=>"Get resume feedback")
 
@@ -52,7 +51,7 @@ class TimelineController < ApplicationController
     # STEP5: Learn what employer expects
     @step = @user.steps.create(:content=>"Learn what employer expects")
     if  @user.goal == "big4"
-        @step.extra = "Leetcode/HackerRank/Firecode https://youtu.be/YJZCUhxNCv8"
+        @step.extra = "Leetcode/HackerRank/Firecode \nhttps://youtu.be/YJZCUhxNCv8"
     else
         #@step = @user.steps.create(:content=>"OOP, Glassdoor questions, FizzBuzz")
     end

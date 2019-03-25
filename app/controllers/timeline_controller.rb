@@ -12,26 +12,50 @@ class TimelineController < ApplicationController
   end
 
   def generate_steps
-    puts("this generates steps for user")
     # STEP1: Work on personal projects
     @step = @user.steps.create(:content=>"Work on personal projects")
     if @user.experience == "hasInternship"
-        @step.extra = "Focus on your internship project it has more value. But do work on personal stuff"
+        @step.extra = "• Having personal projects in addition to work experience will let you showcase your passion for development "\
+        "and people want to work with someone who cares about the work they do."\
+        "\n• If your internship was not in the area where you want to find work "\
+        "(DevOps instead of Dev or front-end when you want to work with back-end) "\
+        "personal projects give you space to expand on those interests."
     elsif @user.experience == "hackathons"
-        @step.extra = "Put Hackathon projects # research on resume. But do work on personal stuff"
+        @step.extra = "• Highlight your Hackathon projects/summer research on your resume"
     else
-        @step.extra = "No experience project ideas:"
-    end
+        @step.extra = "• If you do not have any relevant experience "\
+        "personal projects will help you present yourself as a software developer."\
+        "\n- Focus on where you want to be and build something relevant to that "\
+        "(if you don't want to be a game developer maybe don't make a tic-tac-toe)"\
+        "\n- Use your school work as a starting point."\
+        "\n- Consider following online project-based courses if you haven't worked on a project yet. "\
+        "Try out different courses and platforms to find something that works for you."\
+        "(<a href=\"https://skillcrush.com/2016/03/15/64-online-resources-to-learn-to-code-for-free/\">list of resources</a>)"\
+        end
+    @step.extra << "\n- Check out other resumes for project ideas:"\
+        "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 1</a>"\
+        "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 2</a>"
+
 
     # STEP2: Write a resume
     @step = @user.steps.create(:content=>"Write a resume")
-    extra = ""
+    @step.extra = "• A recruiter spends 20 seconds looking over a resume. Make sure your resume is worth a closer look."\
+        "\n• Do not ignore formatting and spell checking. "\
+        "People will judge a book but its cover and if your resume looks like you spent a total of 10 minutes on it even the most exciting content might get overlooked."\
+        "\n• Use bullet points, action verbs, highlighting achievements instead of writing out your job descriptions "\
+        "(\"saved 42 kittens from a burning building\" vs \"put out fires\")"\
+        "\n• Stick to one page"        
+
     if @user.standing == "freshman"
-        extra = "Write a resume. Focus on extra activities (if do nothing, start), volunteering, projects. Remove high school. "
+        @step.extra << "\n• Remove highshool from your resume"
     elsif @user.standing == "nonTradidional"
-        extra = "Leverage your unique experience but accent relevant CS projects and such"
+        @step.extra << "\n• Leverage your unique experience but keep the focus on Computer Science"
     end
-    @step.extra = extra + "\nCheck out these great examples:"
+    @step.extra << "\n• Examples: <a href=\"http://macalinao.github.io/resume/resume.pdf\">#1</a>,"\
+    "<a href=\"http://dierkers.com/docs/Resume.pdf\">#2</a>,"\
+    "<a href=\"https://maeganclawges.com/MaeganClawgesResume.pdf\">#3</a>,"\
+    "<a href=\"http://macalinao.github.io/resume/resume.pdf\">#4</a>"
+
     #@step = @user.steps.create(:content=>"Cover letters: Quantity vs Quality - it's up to you really")
     @step = @user.steps.create(:content=>"Get resume feedback")
 

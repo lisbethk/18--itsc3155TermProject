@@ -16,7 +16,7 @@ class ClassStandingController < ApplicationController
     elsif params[:nontraditional].present?
       @User.standing = "nonTraditional"
     end
-    @User.experience = "noExperience"
+    @User.experience = "hasInternship"
     @User.goal = "big4"
     @User.save
     redirect_to timeline_index_path(:user_id => @User.id)

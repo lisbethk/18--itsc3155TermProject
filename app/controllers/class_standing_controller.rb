@@ -17,7 +17,7 @@ class ClassStandingController < ApplicationController
       @User.standing = "nonTraditional"
     end
     @User.experience = "hasInternship"
-    @User.goal = "big4"
+    @User.goal = "Internship"
     @User.save
     redirect_to timeline_index_path(:user_id => @User.id)
   end

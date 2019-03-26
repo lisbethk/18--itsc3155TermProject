@@ -58,26 +58,48 @@ class TimelineController < ApplicationController
 
     #@step = @user.steps.create(:content=>"Cover letters: Quantity vs Quality - it's up to you really")
     @step = @user.steps.create(:content=>"Get resume feedback")
+    @step.extra = "• Go to your university's career center"\
+        "\n• If working with a third-party recruiter, ask them for feedback"\
+        "\n• Post your resume on resume advice threads:"\
+        "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 1</a>"\
+        "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 2</a>"\
+        "\nNote: If you are applying to 100+ positions and getting no call-backs stop and get more feedback"
+
 
     # STEP3: Network
     @step = @user.steps.create(:content=>"Network")
-=begin
-    @step = @user.steps.create(:content=>"Have online presence. Make sure it is what you want it to be")
-    @step = @user.steps.create(:content=>"Use Linkedin to find people from your school who went to companies you are interested in. Reach out")
-    @step = @user.steps.create(:content=>"Go to career fairs and talk to people")
-    @step = @user.steps.create(:content=>"Go to meetups")
-    @step = @user.steps.create(:content=>"Use university resources to connect to industry professionals")
-=end
 
-    # STE4P: Conferences
+    @step.extra ="\n• Have online presence. Make sure it is what you want it to be"
+    if @user.standing == "nonTradidional"
+        @step.extra << "\n<a href=\"https://dev.to/jamesmh/how-to-brand-yourself-when-switching-careers-into-software-development-2ajb\">How To Brand Yourself When Switching Careers Into Software Development</a>"
+    end
+    @step.extra << "\n<a href=\"https://medium.freecodecamp.org/building-your-personal-brand-as-a-new-web-developer-f6d4150fd217\">How to build your personal brand as a new developer</a>"\
+        "\n<a href=\"https://medium.com/@coderacademy/how-to-build-your-personal-brand-as-a-developer-877d7bdf9bdd\">How To Build Your Personal Brand As A Developer</a>"
+    
+    @step.extra << "\n• Use Linkedin to find people from your school who work for companies you are interested in. "\
+        "\nReach out to them to learn more about their experience and the company"
+    @step.extra << "\n• Go to career fairs and talk to people. "\
+        "\nCheck universities in your area, they might allow students from other universities to attend as well"
+    @step.extra << "\n• Go to <a href=\"https://www.meetup.com\">tech meetups</a>."\
+        "\nMeetups help you become part of your local tech community, build relationships, and get exposure to new things"
+    @step.extra << "\n• Use university resources to connect to industry professionals"
+
+    # STEP4: Conferences
     @step = @user.steps.create(:content=>"Go to conferences")
+    @step.extra = "• You get to learn new things from people passionate about their field"\
+        "\n• You can network with engineers and hiring managers"\
+        "\n• If companies you are interested in don't come to your school's career fairs you might find them at a conference"\
+        "\nNote: Some conferences offer discounted student pricing or scholarships to make attendance more affordable"\
+        "\n<a href=\"https://www.themuse.com/advice/a-conference-junkies-guide-to-attending-and-enjoying-conferences\">A Conference Junkie’s Guide to Attending (and Enjoying) Conferences</a>"\
+        "\n<a href=\"https://www.cio.com/article/3344362/your-guide-to-top-tech-conferences-2019.html\">Your guide to top tech conferences 2019</a>"\
+        "\n<a href=\"https://medium.com/coder-snorts/a-beginners-guide-to-tech-conferences-76c1ed21d024\">A Beginner’s Guide to Tech Conferences</a>"
 
     # STEP5: Learn what employer expects
     @step = @user.steps.create(:content=>"Learn what employer expects")
-    if  @user.goal == "big4"
+    if @user.goal == "big4"
         @step.extra = "Leetcode/HackerRank/Firecode \nhttps://youtu.be/YJZCUhxNCv8"
     else
-        #@step = @user.steps.create(:content=>"OOP, Glassdoor questions, FizzBuzz")
+        @step.extra = "OOP, Glassdoor questions, FizzBuzz"
     end
 
     # STEP6: Apply for a job
@@ -91,7 +113,7 @@ class TimelineController < ApplicationController
         if @user.standing == "Senior" || @user.standing == "NonTradidional"
             @step = @user.steps.create(:content=>"Apply for local jobs")
         else
-            @step = @user.steps.create(:content=>"Get an internship first.") # if Junior and too late kinda add another advice
+            @step = @user.steps.create(:content=>"Get an internship first.") # if Junior and too late
         end
     elsif @user.goal == "Google"
         if @user.standing == "Senior" || @user.standing == "NonTradidional"
@@ -109,15 +131,17 @@ class TimelineController < ApplicationController
     #Reach for the stars anyway but focus your main effort on your next step \
     #(i.e. before getting to Google, get an internship/2 YOE)")
 
-    # LAST_STEP:
-   # @step = @user.steps.create(:content=>"If you lack people skills you have to be really good. Get some people skills")
-   # @step = @user.steps.create(:content=>"If you apply to 100 places and don't get any callbacks, it's your resume (or where you are applying)")
-   # @step = @user.steps.create(:content=>"If you get 10 phone interviews and no in-person invites, do mock interviews. Improve your people skills. Get honest feedback")
-   # @step = @user.steps.create(:content=>"If you get in-person interviews and no offers, work on people skills, identify weak points, keep working hard")
+    # FINALLY:    
+    # @step = @user.steps.create(:content=>"If you lack people skills you have to be really good. Get some people skills")
+    # @step = @user.steps.create(:content=>"If you apply to 100 places and don't get any callbacks, it's your resume (or where you are applying)")
+    # @step = @user.steps.create(:content=>"If you get 10 phone interviews and no in-person invites, do mock interviews. Improve your people skills. Get honest feedback")
+    # @step = @user.steps.create(:content=>"If you get in-person interviews and no offers, work on people skills, identify weak points, keep working hard")
 
   end
 
-  def internSeason
-    return
+  def internSeason # June - Dec
+    time = Time.new
+    currMonth = time.month
+    return currMonth > 5 
   end
 end

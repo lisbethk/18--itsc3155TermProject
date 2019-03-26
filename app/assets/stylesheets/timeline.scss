@@ -10,10 +10,20 @@
 .step_main {
   font-family: Alegreya;
   font-size: 30px;
-  margin: 50px;
+  margin: 30px;
 }
 
 .step_extra {
+  font-family: Alegreya;
+  font-size: 20px;
+  margin-left: 80px;  
+}
+
+.hidden {
+  display: none; 
+}
+
+.hide {
   font-family: Alegreya;
   font-size: 20px;
   margin-left: 80px;

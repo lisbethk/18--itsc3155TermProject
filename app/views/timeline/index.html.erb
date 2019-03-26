@@ -3,7 +3,8 @@
     <div class ="step_main"><input type="checkbox">
       <%= element.content %>
     </div>
-    <div class="step_extra">
+    <a data-js-hide-link="true" href="" class="hide">more</a>
+    <div class="hidden">
     <%= simple_format element.extra %>
     </div>
   <% end %>

@@ -41,8 +41,8 @@ class TimelineController < ApplicationController
     @step = @user.steps.create(:content=>"Write a resume")
     @step.extra = "• A recruiter spends 20 seconds looking over a resume. Make sure your resume is worth a closer look."\
         "\n• Do not ignore formatting and spell checking. "\
-        "People will judge a book but its cover and if your resume looks like you spent a total of 10 minutes on it even the most exciting content might get overlooked."\
-        "\n• Use bullet points, action verbs, highlighting achievements instead of writing out your job descriptions "\
+        "\nPeople do judge a book but its cover so if your resume looks like you spent a total of 10 minutes on it even the most exciting content might get overlooked."\
+        "\n• Use bullet points and action verbs, highlight your achievements"\
         "(\"saved 42 kittens from a burning building\" vs \"put out fires\")"\
         "\n• Stick to one page"        
 
@@ -95,12 +95,31 @@ class TimelineController < ApplicationController
         "\n<a href=\"https://medium.com/coder-snorts/a-beginners-guide-to-tech-conferences-76c1ed21d024\">A Beginner’s Guide to Tech Conferences</a>"
 
     # STEP5: Learn what employer expects
-    @step = @user.steps.create(:content=>"Learn what employer expects")
+    @step = @user.steps.create(:content=>"Learn what employer expects you to know")
     if @user.goal == "big4"
-        @step.extra = "Leetcode/HackerRank/Firecode \nhttps://youtu.be/YJZCUhxNCv8"
+        @step.extra = "• You must have a solid foundation in data structures and algorithms"\
+            "\nYou are expected to be comfortable with recursion, dynamic programming, backtracking, and graphs"\
+            "\n• Practice coding on a whiteboard and talking about what you are doing"\
+            "\nYour ability to communicate clearly matters probably as much as your ability to actually solve the problem"\
+            "\n• For a new grad interview it is unlikely that you will get asked system design questions"
+        
     else
-        @step.extra = "OOP, Glassdoor questions, FizzBuzz"
+        @step.extra = "Unless you are applying to bigger tech companies (Google/Facebook/Microsoft) or unicorns (Airbnb, Pinterest, etc)"\
+        "it is unlikely that you will be asked a <a href=\"https://leetcode.com/problems/lru-cache/\">leetcode hard</a> in an interview"\
+        "\nIt does mean that there is a wider variety of questions and levels of difficulty you may encounter in an interview"\
+        "\n"\
+        " OOP, Glassdoor questions, FizzBuzz"
     end
+    @step.extra << "Online resources:"\
+    "\n- <a href=\"https://www.firecode.io\">Firecode</a> (good for starting out)"\
+    "\n- <a href=\"https://leetcode.com\">Leetcode</a>"\    
+    "\n- <a href=\"https://www.hackerrank.com\">HackerRank</a>"\
+    "\n- <a href=\"https://youtu.be/YJZCUhxNCv8\">'How to Get a Job at the Big 4' by Sean Lee</a>"\
+    "\n- <a href=\"https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU\">Curated List of Top 100 LeetCode Questions</a>"\
+    "\n- <a href=\"https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms\">Visualizing Four Key Technical Interview Algorithms</a>"\
+    "\nBooks:"\
+    "\n- <a href=\"http://www.crackingthecodinginterview.com/\>Cracking the Coding Interview</a>"\
+    "\n- <a href=\"https://elementsofprogramminginterviews.com/\>Elements of Programming Interviews</a>"
 
     # STEP6: Apply for a job
     if @user.goal == "Internship"

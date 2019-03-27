@@ -1,13 +1,8 @@
 class TimelineController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    puts(@user.standing)
-    puts(@user.experience)
-    puts(@user.goal)
-    generate_steps()
-    @steps_array = Array.new
-    @user.steps.each_with_index do |step, index|
-        @steps_array[index] = step.content
+    if !@user.steps.present?
+        generate_steps()
     end
   end
 

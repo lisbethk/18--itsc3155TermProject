@@ -107,9 +107,9 @@ class TimelineController < ApplicationController
         @step.extra = "Unless you are applying to bigger tech companies (Google/Facebook/Microsoft) or unicorns (Airbnb, Pinterest, etc)"\
         "it is unlikely that you will be asked a <a href=\"https://leetcode.com/problems/lru-cache/\">leetcode hard</a> in an interview"\
         "\nIt does mean that there is a wider variety of questions and levels of difficulty you may encounter in an interview"\
-        "\n"\
+        "\n"\ 
         " OOP, Glassdoor questions, FizzBuzz"
-    end
+    end 
 
     # STEP6: Apply for a job
     if @user.goal == "Internship"

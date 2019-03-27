@@ -112,7 +112,7 @@ class TimelineController < ApplicationController
     end
     @step.extra << "Online resources:"\
     "\n- <a href=\"https://www.firecode.io\">Firecode</a> (good for starting out)"\
-    "\n- <a href=\"https://leetcode.com\">Leetcode</a>"\    
+    "\n- <a href=\"https://leetcode.com\">Leetcode</a>"\
     "\n- <a href=\"https://www.hackerrank.com\">HackerRank</a>"\
     "\n- <a href=\"https://youtu.be/YJZCUhxNCv8\">'How to Get a Job at the Big 4' by Sean Lee</a>"\
     "\n- <a href=\"https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU\">Curated List of Top 100 LeetCode Questions</a>"\

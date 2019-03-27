@@ -107,9 +107,19 @@ class TimelineController < ApplicationController
         @step.extra = "Unless you are applying to bigger tech companies (Google/Facebook/Microsoft) or unicorns (Airbnb, Pinterest, etc)"\
         "it is unlikely that you will be asked a <a href=\"https://leetcode.com/problems/lru-cache/\">leetcode hard</a> in an interview"\
         "\nIt does mean that there is a wider variety of questions and levels of difficulty you may encounter in an interview"\
-        "\n"\ 
+        "\n"\
         " OOP, Glassdoor questions, FizzBuzz"
-    end 
+    end
+    @step.extra << "Online resources:"\
+    "\n- <a href=\"https://www.firecode.io\">Firecode</a> (good for starting out)"\
+    "\n- <a href=\"https://leetcode.com\">Leetcode</a>"\    
+    "\n- <a href=\"https://www.hackerrank.com\">HackerRank</a>"\
+    "\n- <a href=\"https://youtu.be/YJZCUhxNCv8\">'How to Get a Job at the Big 4' by Sean Lee</a>"\
+    "\n- <a href=\"https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU\">Curated List of Top 100 LeetCode Questions</a>"\
+    "\n- <a href=\"https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms\">Visualizing Four Key Technical Interview Algorithms</a>"\
+    "\nBooks:"\
+    "\n- <a href=\"http://www.crackingthecodinginterview.com/\>Cracking the Coding Interview</a>"\
+    "\n- <a href=\"https://elementsofprogramminginterviews.com/\>Elements of Programming Interviews</a>"
 
     # STEP6: Apply for a job
     if @user.goal == "Internship"

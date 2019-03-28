@@ -21,20 +21,31 @@
 
 .header {
     text-align: center;
-    background-color: rgb(66,133,244);
-    padding: 30px;
+    position: relative;
 }
-
 
 #site_name {
     font-family: Alegreya;
-    font-size: 70px;
+    font-size: 90px;
+    font-style: bold;
     color: white;
     text-decoration: none;
 }
 
 #short_desc {
     font-family: Alegreya;
-    font-size: 30px;
+    font-size: 25px;
+    font-style: italic;
     color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+html {
+    scroll-behavior: smooth;
 }

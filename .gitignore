@@ -32,3 +32,5 @@
 
 .idea/
 draft.md 
+
+/config/initializers/auth0.rb

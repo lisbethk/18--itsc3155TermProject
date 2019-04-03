@@ -65,3 +65,6 @@ gem 'travis'
 gem 'net-http-pipeline', '1.0.1'
 gem 'rspec'
 gem 'jquery-rails'
+
+# gem 'omniauth', '~> 1.6.1'
+gem 'omniauth-auth0', '~> 2.0.0'

@@ -1,11 +1,7 @@
 <article>
-<h1>Step 1: Work on personal projects</h1>
-<h1>Step 2: Network</h1>
-<h1>Step 3: Go to conferences</h1>
-<h1>Step 4: Write a resume</h1>
-<h1>Step 5: Get resume feedback</h1>
-<h1>Step 6: Learn what employers expects you to know</h1>
-<h1>Step 7: Apply</h1>
+<% @user.steps.each do |element| %>    
+      <h1><%= element.content %></h1>    
+  <% end %>
 </article>
 
 <div id="more">

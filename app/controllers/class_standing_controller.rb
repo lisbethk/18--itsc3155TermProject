@@ -19,7 +19,7 @@ class ClassStandingController < ApplicationController
     @User.experience = "hasInternship"
     @User.goal = "Internship"
     @User.save
-    redirect_to timeline_index_path(:user_id => @User.id)
+    redirect_to goal_index_path(:user_id => @User.id)
   end
 
   def letsencrypt

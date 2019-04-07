@@ -100,7 +100,7 @@ class TimelineController < ApplicationController
 
     # STEP6: Learn what employer expects
     @step = @user.steps.create(:content=>"Step 6: Learn what employers expects you to know")
-    if @user.goal == "big4"
+    if @user.goal == "Google"
         @step.extra = "• You must have a solid foundation in data structures and algorithms."\
             "\nYou are expected to be comfortable with recursion, dynamic programming, backtracking, and graphs."\
             "\n• Practice coding on a whiteboard and talking about what you are doing."\

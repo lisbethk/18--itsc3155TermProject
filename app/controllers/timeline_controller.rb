@@ -4,9 +4,6 @@ class TimelineController < ApplicationController
     @user_auth = session[:userinfo]
 
     if @user_auth == nil
-        puts("NOT LOGGED IN")
-
-        puts("if local")
         if !@user.steps.present?
             generate_steps()
         end

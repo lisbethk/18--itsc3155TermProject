@@ -1,20 +1,23 @@
 class GoalsController < ApplicationController
     def index
         @user = User.find(params[:user_id])
+        puts(@user)
       end
 
-      def update
+      def create
+        
         if params[:google].present?
-          @User.goal = "Google"
+          puts(@user)
+          @user.goal = "Google"
         elsif params[:localjob].present?
-          @User.goal = "LocalJob"
+          @user.goal = "LocalJob"
         elsif params[:internship].present?
-          @User.goal = "Internship"
+          @user.goal = "Internship"
         elsif params[:idk].present?
-          @User.goal = "idk"
+          @user.goal = "idk"
         end
-        @User.experience = "hasInternship"
-        @User.save
-        redirect_to timeline_index_path(:user_id => @User.id)
+        @user.experience = "hasInternship"
+        @user.save
+        redirect_to timeline_index_path(:user_id => @user.id)
       end
 end

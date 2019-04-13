@@ -1,6 +1,5 @@
 class ClassStandingController < ApplicationController
   def index
-
   end
 
   def create
@@ -21,9 +20,5 @@ class ClassStandingController < ApplicationController
     @User.save
     redirect_to timeline_index_path(:user_id => @User.id)
   end
-
-  def letsencrypt
-    puts("sudo certbot certonly --standalone -d careerquestions.dev -d www.careerquestions.dev")
-    render plain: params[:id]
-  end
+  
 end

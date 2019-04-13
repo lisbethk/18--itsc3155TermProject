@@ -1,8 +1,7 @@
 class TimelineController < ApplicationController
-  include Secured
   include LogoutHelper
-  def index
 
+  def index
     if params[:user_id].present?
         @user = User.find(params[:user_id])
     else
@@ -18,7 +17,7 @@ class TimelineController < ApplicationController
     end
     puts("================================")
   end
-  
+
   def logout
     reset_session
     redirect_to logout_url.to_s

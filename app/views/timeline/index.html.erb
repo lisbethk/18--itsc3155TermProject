@@ -6,8 +6,8 @@
   <% end %>
 </article>
 
-<div id="more">
-  <a href="#timeline" id="learnMore">Learn More</a>
+<div class="links_centered">
+  <a href="#timeline" class="button_shared">Learn More</a>
 </div>
 <br>
 <div>
@@ -31,8 +31,10 @@
   <% end %>
 </div>
 
-<a href="/auth/auth0">Login</a>
-<a href="auth/logout">Logout!</a>
+<div class="links_centered">
+  <%= link_to "Login", "javascript:void(0)", { class: "button_shared", href: "/auth/auth0" } unless session[:userinfo].present? %>
+  <%= link_to "Log out", "javascript:void(0)", { class: "button_shared", href: "auth/logout" } if session[:userinfo].present? %>
+</div>
 
 <div id="imageset">
   <div class="inline-block">

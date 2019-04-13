@@ -7,27 +7,6 @@
   src: font-url('Alegreya.ttf')
 }
 
-#more {
-  text-align: center;
-}
-
-#learnMore {
-  font-family: Alegreya;
-  font-size: 30px;
-  border-radius: 10px;
-  background-color: white;
-  color: black;
-  border: 2px solid rgb(247,189,2);
-  text-decoration: none;
-  padding: 0.1em;
-}
-
-#learnMore:hover {
-  background-color: rgb(247,189,2);
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  color: white;
-}
-
 .step_main {
   font-family: Alegreya;
   font-size: 30px;

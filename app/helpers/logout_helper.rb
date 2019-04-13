@@ -1,7 +1,5 @@
 module LogoutHelper
   def logout_url
-    puts("==================================")
-    puts(Rails.application.secrets)
     domain = Rails.application.secrets.auth0_domain
     client_id = Rails.application.secrets.auth0_client_id
     request_params = {

@@ -1,8 +1,12 @@
 class TimelineController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
-    @user_auth = session[:userinfo]
 
+    if params[:user_id].present?
+        @user = User.find(params[:user_id])
+    else
+        @user_auth = session[:userinfo]
+        @user = User.new
+    end
     if @user_auth == nil
         if !@user.steps.present?
             generate_steps()

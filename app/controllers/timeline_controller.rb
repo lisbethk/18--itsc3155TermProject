@@ -1,4 +1,6 @@
 class TimelineController < ApplicationController
+  include Secured
+  include LogoutHelper
   def index
 
     if params[:user_id].present?
@@ -15,6 +17,11 @@ class TimelineController < ApplicationController
         puts(@user_auth)
     end
     puts("================================")
+  end
+  
+  def logout
+    reset_session
+    redirect_to logout_url.to_s
   end
 
   def generate_steps

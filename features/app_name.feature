@@ -1,6 +1,6 @@
 Feature: App Name
   As a user
-  I want to see app's name and description on front page
+  I want to see the app's name and description on the front page
   So that I know what to expect
 
 Scenario: As a user I want to see app's name and description

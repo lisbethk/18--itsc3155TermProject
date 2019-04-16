@@ -26,6 +26,7 @@ html {
 .header {
   text-align: center;
   position: relative;
+  margin-bottom: 0px;
 }
 
 .header img {
@@ -51,7 +52,7 @@ html {
   color: white;
 }
 
-.centered {
+.header_centered {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,7 +61,7 @@ html {
 
 .links_centered {
   text-align: center;
-  margin: 30px;
+  margin-top: 10px;
 }
 
 .button_shared {
@@ -70,7 +71,7 @@ html {
   background-color: white;
   color: black;
   border: 2px solid rgb(247, 189, 2);
-  margin: 15px;
+  margin: 10px;
   padding: 0.1em;
   text-decoration: none;
 }
@@ -85,6 +86,8 @@ html {
   text-align: center;
   font-family: Alegreya;
   font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .page_count {
@@ -95,6 +98,6 @@ html {
 
 .center {
   margin: 0 auto;
-  width: 50px;
-  margin-top: 50px;
+  width: 30px;
+  margin-top: 20px;
 }

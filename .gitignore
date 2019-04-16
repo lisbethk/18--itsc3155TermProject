@@ -31,4 +31,5 @@
 /config/master.key
 
 .idea/
+.vscode/
 draft.md

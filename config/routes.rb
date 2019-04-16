@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :welcome
   resources :goals
-  resources :class_standing, only: [:index, :create]
+  resources :class_standing, only: %i[index create]
   resources :timeline, only: [:index]
 
   get 'auth/auth0/callback' => 'auth0#callback'

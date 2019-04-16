@@ -60,11 +60,11 @@ class TimelineController < ApplicationController
     @step.extra << "\n• Have an elevator pitch ready."\
         "\nEven if you are willing to \"work for food\", "\
         "even if you don't care if they hire you to do front end or machine learning "\
-        "you have to present yourself as someone who knows their value. "\
+        'you have to present yourself as someone who knows their value. '\
         "If you don't see any value in yourself and your potential "\
-        "why would an employer invest in you?"\
+        'why would an employer invest in you?'\
         "\n• Use Linkedin to find people from your school who work for companies you are interested in. "\
-        "Reach out to them to learn more about their experience at the company."\
+        'Reach out to them to learn more about their experience at the company.'\
         "\n• Go to career fairs and when you do - come prepared."\
         "\n<a href=\"https://www.1takeinterview.com/careerfair/\">How To : Crush Career Fair</a>"\
         "\nCheck universities in your area, they might allow students from other universities to attend as well."\

@@ -8,6 +8,7 @@ module LogoutHelper
   end
 
   private
+
   def to_query(hash)
     hash.map { |k, v| "#{k}=#{URI.escape(v)}" unless v.nil? }.reject(&:nil?).join('&')
   end

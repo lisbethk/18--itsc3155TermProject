@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :welcome
+  resources :goals
   resources :class_standing, only: [:index, :create]
   resources :timeline, only: [:index]
 

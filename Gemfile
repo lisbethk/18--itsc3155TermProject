@@ -66,3 +66,7 @@ gem 'net-http-pipeline', '1.0.1'
 gem 'omniauth-auth0', '~> 2.0.0'
 gem 'rspec'
 gem 'travis'
+
+gem 'cucumber'
+gem 'cucumber-rails', :require => false 
+gem 'database_cleaner'

@@ -10,11 +10,11 @@ class TimelineController < ApplicationController
     # STEP1: Work on personal projects
     @step = @user.steps.create(:content=>"Step 1: Work on personal projects")
     if @user.experience == "hasInternship"
-        @step.extra = "Having personal projects in addition to work experience will help you showcase your passion for development."
+        @step.extra = "• Having personal projects in addition to work experience will help you showcase your passion for development."
         "\nIf your internship was not in the area where you want to find work "\
         "(DevOps instead of Dev, for example) "\
         "you can use personal projects to highlight your interests."
-    elsif @user.experience == "hackathons"
+    elsif @user.experience == "someExperience"
         @step.extra = "• Highlight your Hackathon projects/summer research experience on your resume"
     else
         @step.extra = "• If you do not have any relevant experience "\
@@ -35,7 +35,7 @@ class TimelineController < ApplicationController
     @step = @user.steps.create(:content=>"Step 2: Network")
 
     @step.extra ="\n• Have an online presence. Make sure it is what you want it to be."
-    if @user.standing == "nonTradidional"
+    if @user.standing == "nonTraditional"
         @step.extra << "\n<a href=\"https://dev.to/jamesmh/how-to-brand-yourself-when-switching-careers-into-software-development-2ajb\">"\
         "How To Brand Yourself When Switching Careers Into Software Development</a>"
     end

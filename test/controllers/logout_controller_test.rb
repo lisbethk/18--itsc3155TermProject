@@ -1,8 +1,7 @@
 require 'test_helper'
 
-class WelcomeControllerTest < ActionDispatch::IntegrationTest
+class LogoutControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
-
 end

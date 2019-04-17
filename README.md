@@ -14,5 +14,3 @@ Make sure you have Ruby installed. Use [RVM](https://rvm.io/rvm/install) to swit
 ### Getting Started on Heroku with Rails 5.x
 
 https://devcenter.heroku.com/articles/getting-started-with-rails5
-
-edit

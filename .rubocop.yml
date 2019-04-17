@@ -1,0 +1,22 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'test/test_helper.rb'
+    - 'test/application_system_test_case.rb'
+    - 'config/puma.rb'
+    - 'config/environments/*.rb'
+    - 'bin/*'
+Style/NumericLiterals:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Layout/EndOfLine:
+  EnforcedStyle: lf
+Metrics/LineLength:
+  Max: 200
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false

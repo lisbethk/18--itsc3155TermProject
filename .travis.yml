@@ -9,4 +9,5 @@ script:
 - gem install net-http-pipeline -v 1.0.1
 - RAILS_ENV=test bundle exec rake db:create db:migrate
 - chmod u+x bin/rails
-- bin/rails test test/controllers/welcome_controller_test.rb
+- bin/rails test test/controllers/class_standing_controller_test.rb
+- bundle exec cucumber

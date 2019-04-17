@@ -1,12 +1,12 @@
 <div>
-  <h2 class="question">I am a...</h2>
+  <h1 class="question">I am a...</h2>
 </div>
-<div class="answers">
-  <%= button_to "Freshman", { action: "create" }, :name => 'freshman' %>
-  <%= button_to "Sophomore", { action: "create" }, :name => 'sophomore'  %>
-  <%= button_to "Junior", { action: "create" }, :name => 'junior' %>
-  <%= button_to "Senior", { action: "create" }, :name => 'senior' %>
-  <%= button_to "Non-Traditional Student", { action: "create" }, :name => 'nontraditional' %>
+<div class="links_centered">
+  <%= button_to "Freshman", { action: "create" }, :name => 'freshman', :class => 'button_shared' %>
+  <%= button_to "Sophomore", { action: "create" }, :name => 'sophomore', :class => 'button_shared'  %>
+  <%= button_to "Junior", { action: "create" }, :name => 'junior', :class => 'button_shared' %>
+  <%= button_to "Senior", { action: "create" }, :name => 'senior', :class => 'button_shared' %>
+  <%= button_to "Non-Traditional Student", { action: "create" }, :name => 'nontraditional', :class => 'button_shared' %>
 </div>
 <div class="center"><span class="page_count">1/3</span></div>
 <br>

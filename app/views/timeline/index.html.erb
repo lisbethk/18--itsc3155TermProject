@@ -1,36 +1,55 @@
+<%= session[:userinfo].inspect %>
+
 <article>
-<% @user.steps.each do |element| %>    
-      <h1><%= element.content %></h1>    
+  <% @user.steps.each do |element| %>
+  <h1><%= element.content %></h1>
   <% end %>
 </article>
 
-<a href="/auth/auth0">Login</a>
-
-<div id="more">
-<a href="#timeline" id="moreLink">Learn More</a>
+<div class="links_centered">
+  <a href="#timeline" class="button_shared">Learn More</a>
 </div>
 <br>
-<div class="image">
-<%= image_tag("danielle-macinnes-222441-unsplash.jpg") %><br>
-<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@dsmacinnes?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Danielle MacInnes"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Danielle MacInnes</span></a>
+<div>
+  <%= image_tag("danielle-macinnes-222441-unsplash.jpg", id:"image_begin") %><br>
+  <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
+    href="https://unsplash.com/@dsmacinnes?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+    target="_blank" rel="noopener noreferrer"><span
+      style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+        style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32">
+        <title>unsplash-logo</title>
+        <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
+      </svg></span><span style="display:inline-block;padding:2px 3px">Danielle MacInnes</span></a>
 </div>
-
 
 <div id="timeline">
   <% @user.steps.each do |element| %>
-    <article>
-      <h1><%= element.content %></h1>
-      <%= simple_format element.extra %>
-    </article>
+  <article>
+    <h1><%= element.content %></h1>
+    <%= simple_format element.extra %>
+  </article>
   <% end %>
 </div>
 
+<div class="links_centered">
+  <%= link_to "Login", "javascript:void(0)", { class: "button_shared", href: "/auth/auth0" } unless session[:userinfo].present? %>
+  <%= link_to "Log out", "javascript:void(0)", { class: "button_shared", href: "auth/logout" } if session[:userinfo].present? %>
+</div>
+
 <div id="imageset">
-<%= image_tag("01.jpg", class:"squareimage") %>
+  <div class="inline-block">
+    <%= image_tag("01.jpg", class:"squareimage") %>
+  </div>
 
-<%= image_tag("02.jpg", class:"squareimage") %>
+  <div class="inline-block">
+    <%= image_tag("02.jpg", class:"squareimage") %>
+  </div>
 
-<%= image_tag("03.jpg", class:"squareimage") %>
+  <div class="inline-block">
+    <%= image_tag("03.jpg", class:"squareimage") %>
+  </div>
+  <div class="inline-block">
+    <%= image_tag("04.jpg", class:"squareimage") %>
+  </div>
 
-<%= image_tag("04.jpg", class:"squareimage") %>
 </div>

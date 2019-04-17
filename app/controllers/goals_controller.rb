@@ -15,7 +15,6 @@ class GoalsController < ApplicationController
     elsif params[:idk].present?
       @@user.goal = 'idk'
     end
-    @@user.experience = 'hasInternship'
     @@user.save
     redirect_to timeline_index_path(user_id: @@user.id)
   end

@@ -28,7 +28,7 @@ class TimelineController < ApplicationController
       "\nIf your internship was not in the area where you want to find work "\
       '(DevOps instead of Dev, for example) '\
       'you can use personal projects to highlight your interests.')
-    elsif @user.experience == 'hackathons'
+    elsif @user.experience == 'someExperience'
       @step.update_attribute(:extra, "\xE2\x80\xA2 Highlight your Hackathon projects/summer research experience on your resume")
     else
       @step.update_attribute(:extra, "\xE2\x80\xA2 If you do not have any relevant experience "\

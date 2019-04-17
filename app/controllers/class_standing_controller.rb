@@ -14,9 +14,7 @@ class ClassStandingController < ApplicationController
     elsif params[:nontraditional].present?
       @user.standing = 'nonTraditional'
     end
-    @user.experience = 'hasInternship'
-    @user.goal = 'Internship'
     @user.save
-    redirect_to goals_path(user_id: @user.id)
+    redirect_to experience_index_path(user_id: @user.id)
   end
 end

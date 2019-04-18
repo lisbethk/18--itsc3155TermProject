@@ -9,3 +9,7 @@
   <%= button_to "Non-Traditional Student", { action: "create" }, :name => 'nontraditional', :class => 'button_shared' %>
 </div>
 <div class="center"><span class="page_count">1/3</span></div>
+<div class="links_centered">
+  <%= link_to "Login to save your progress", "javascript:void(0)", { class: "button_shared", href: "/auth/auth0" } unless session[:userinfo].present? %>
+</div>
+<br>

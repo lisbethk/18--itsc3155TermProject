@@ -43,7 +43,6 @@
 </div>
 
 <div class="links_centered">
-  <%= link_to "Login", "javascript:void(0)", { class: "button_shared", href: "/auth/auth0" } unless session[:userinfo].present? %>
   <%= link_to "Log out", "javascript:void(0)", { class: "button_shared", href: "auth/logout" } if session[:userinfo].present? %>
 </div>
 

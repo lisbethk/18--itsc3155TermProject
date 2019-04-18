@@ -10,5 +10,5 @@ Scenario: As a user I want to get the list of steps
  When I click on the "No CS experience" button
  Then I should be on the "I want to..." page
  When I click on the "work at Google" button
- Then I should be on the "Learn More" page
- And I should see the "Step 1" content
+ Then I should be on the "Get Started" page
+ And I should see the "Work on personal projects" content

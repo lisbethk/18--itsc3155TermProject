@@ -4,44 +4,41 @@
 
 @font-face {
   font-family: "Alegreya";
-  src: font-url('Alegreya.ttf')
+  src: font-url("Alegreya.ttf");
 }
 
-.step_main {
-  font-family: Alegreya;
-  font-size: 30px;
-  width: 36em;
-  margin:0 auto;
+// MIDDLE IMAGE
+
+#image_begin {
   max-width: 100%;
-  line-height: 1.5;
+  height: auto;
+  max-height: 100%;
+  display: inline-block;
+  margin-top: 0px;
 }
 
-#image_begin {  
-  max-width:100%;
-  height:auto;
-  max-height:100%;
-  display:inline-block;
-  margin-top: 3px;
-}
+// FOOTER IMAGES
 
 #imageset {
-  display:flex;
+  display: flex;
 }
 
 #imageset div {
-  flex:1;
-  margin:15px; 
+  flex: 1;
+  margin: 15px;
 }
 
 .squareimage {
-  width:100%;
+  width: 100%;
 }
+
+// LIST OF STEPS
 
 article {
   font-family: Alegreya;
   font-size: 20px;
   width: 36em;
-  margin:0 auto;
+  margin: 0 auto;
   max-width: 100%;
   line-height: 1.5;
 }
@@ -50,4 +47,67 @@ article {
   article {
     font-size: 16px;
   }
+}
+
+// TABLE OF CONTENT
+
+#get_started {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+#table-of-content {
+  width: 36em;
+  margin: 0 auto;
+  max-width: 100%;
+}
+#table-of-content .number {
+  font-family: Alegreya;
+  font-size: 30px;
+}
+#table-of-content a {
+  text-decoration: none;
+  color: black;
+  font-family: Alegreya;
+  font-size: 30px;
+  line-height: 1.2;
+}
+#table-of-content a:hover {
+  text-decoration: underline;
+}
+#table-of-content h1 {
+  font-size: 40px;
+  width: 200px;
+  border-bottom: 4px solid #4688f1;
+}
+
+// QUOTE
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  padding: 20px;
+  quotes: "\201C""\201D""\2018""\2019";
+
+  font-family: Alegreya;
+  font-size: 20px;
+  line-height: 1.5;
+  width: 26em;
+  margin-left: 40%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  max-width: 100%;
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
 }

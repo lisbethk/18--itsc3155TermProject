@@ -1,31 +1,42 @@
-<%= session[:userinfo].inspect %>
+<div class="timeline_top">
+  <div id="table-of-content">
+    <h1>Contents</h1>
+    <span class="number">1. </span><a href="#step1" class="steps_anchors">Work on personal projects</a><br>
+    <span class="number">2. </span><a href="#step2" class="steps_anchors">Network</a><br>
+    <span class="number">3. </span><a href="#step3" class="steps_anchors">Go to conferences</a><br>
+    <span class="number">4. </span><a href="#step4" class="steps_anchors">Write a resume</a><br>
+    <span class="number">5. </span><a href="#step5" class="steps_anchors">Get resume feedback</a><br>
+    <span class="number">6. </span><a href="#step6" class="steps_anchors">Learn what employers expects you to
+      know</a><br>
+    <span class="number">7. </span><a href="#step7" class="steps_anchors">Apply</a>
+  </div>
 
-<article>
-  <% @user.steps.each do |element| %>
-  <h1><%= element.content %></h1>
-  <% end %>
-</article>
-
-<div class="links_centered">
-  <a href="#timeline" class="button_shared">Learn More</a>
+  <div id="get_started">
+    <a href="#quote" class="button_shared">Get Started</a>
+  </div>
 </div>
-<br>
 <div>
   <%= image_tag("danielle-macinnes-222441-unsplash.jpg", id:"image_begin") %><br>
   <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px"
     href="https://unsplash.com/@dsmacinnes?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
-    target="_blank" rel="noopener noreferrer"><span
-      style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+    target="_blank" rel="noopener noreferrer"><span style="display:inline-block;padding:2px 3px"><svg
+        xmlns="http://www.w3.org/2000/svg"
         style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32">
         <title>unsplash-logo</title>
         <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
       </svg></span><span style="display:inline-block;padding:2px 3px">Danielle MacInnes</span></a>
 </div>
 
+<blockquote id="quote">
+  “Begin at the beginning,” the King said gravely, “and go on till you come to the end: then stop.”
+  <br>
+  - Lewis Carroll, Alice's Adventures in Wonderland
+</blockquote>
+
 <div id="timeline">
   <% @user.steps.each do |element| %>
   <article>
-    <h1><%= element.content %></h1>
+    <%= element.content.html_safe %>
     <%= simple_format element.extra %>
   </article>
   <% end %>

@@ -1,0 +1,12 @@
+Feature: Class Standing Content
+  As a user
+  I want to see all available class standing options
+  So that I can select the appropriate option for me
+
+Scenario: I want to see all available class standing options
+ Given I am on the home page
+ Then I should have button "Freshman"
+ And I should have button "Sophomore"
+ And I should have button "Junior"
+ And I should have button "Senior"
+ And I should have button "Non-Traditional Student"

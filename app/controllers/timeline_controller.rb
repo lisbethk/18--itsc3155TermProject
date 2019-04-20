@@ -3,7 +3,6 @@ class TimelineController < ApplicationController
   include TimelineHelper
 
   def index
-    @user
     if params[:user_id].present?
       @user = User.find(params[:user_id])
     elsif session[:userinfo].present?
@@ -15,6 +14,14 @@ class TimelineController < ApplicationController
     if !@user.steps.present?
       @user.save!
       generate_steps
+    end
+  end
+
+  def create
+    @user.steps.each do |step|
+      if false
+        step.update_attribute(:done?, true)
+      end
     end
   end
 end

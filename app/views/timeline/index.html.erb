@@ -36,6 +36,7 @@
 <div id="timeline">
   <% @user.steps.each do |element| %>
   <article>
+  <input type="checkbox", width=50px, height=50px>Check to mark below step as done
     <%= element.content.html_safe %>
     <%= simple_format element.extra %>
   </article>
@@ -44,6 +45,7 @@
 
 <div class="links_centered">
   <%= link_to "Log out", "javascript:void(0)", { class: "button_shared", href: "auth/logout" } if session[:userinfo].present? %>
+  <%= button_to "Save Progress", { action: "create" }, :class => 'button_shared' %>
 </div>
 
 <div id="imageset">

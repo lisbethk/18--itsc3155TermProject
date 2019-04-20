@@ -85,9 +85,10 @@ html {
 
 #login_button {
   position: fixed;
-  width: 30%;
-  bottom: 0%;
-  right: 0%;
+  right: 0;
+  top: 50%;
+  width: 20%;
+  margin-top: -2.5em;
 }
 
 .question {

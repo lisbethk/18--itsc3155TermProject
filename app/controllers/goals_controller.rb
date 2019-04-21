@@ -7,11 +7,11 @@ class GoalsController < ApplicationController
 
   def create
     if params[:google].present?
-      @@user.goal = 'Google'
+      @@user.goal = 'big4'
     elsif params[:localjob].present?
-      @@user.goal = 'LocalJob'
+      @@user.goal = 'localJob'
     elsif params[:internship].present?
-      @@user.goal = 'Internship'
+      @@user.goal = 'internship'
     elsif params[:idk].present?
       @@user.goal = 'idk'
     end

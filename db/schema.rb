@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_18_194852) do
+ActiveRecord::Schema.define(version: 2019_04_21_144249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_04_18_194852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "step_id"
+    t.string "status"
     t.index ["user_id"], name: "index_steps_on_user_id"
   end
 
@@ -28,9 +30,9 @@ ActiveRecord::Schema.define(version: 2019_04_18_194852) do
     t.string "standing"
     t.string "experience"
     t.string "goal"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
   end
 
   add_foreign_key "steps", "users"

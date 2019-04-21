@@ -1,5 +1,5 @@
 module TimelineHelper
-  
+
   def generate_steps
     # STEP1: Work on personal projects
     @step = @user.steps.create(content: '<h1 id="step1">Step 1: Work on personal projects</h1>')
@@ -9,9 +9,9 @@ module TimelineHelper
       '(DevOps instead of Dev, for example) '\
       'you can use personal projects to highlight your interests.')
     elsif @user.experience == 'someExperience'
-      @step.update_attribute(:extra, "\xE2\x80\xA2 Highlight your Hackathon projects/summer research experience on your resume")
+      @step.update_attribute(:extra, "• Highlight your Hackathon projects/summer research experience on your resume")
     else
-      @step.update_attribute(:extra, "\xE2\x80\xA2 If you do not have any relevant experience "\
+      @step.update_attribute(:extra, "• If you do not have any relevant experience "\
       'personal projects will help you present yourself as a software developer.'\
       "\n• Focus on where you want to be and build something relevant to that."\
       "\n• Use your school work as a starting point.")
@@ -23,6 +23,7 @@ module TimelineHelper
         "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 1</a>"\
         "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 2</a>"\
         "\n• Make sure you are using the right tools for the job: pick a language or a framework that compliments the problem you are trying to solve."
+    @step.update_attribute(:step_id, 1)
     @step.save!
 
     # STEP2: Network
@@ -52,6 +53,7 @@ module TimelineHelper
         "\nMeetups help you become part of your local tech community, build relationships, "\
         "and learn about the latest tech trends."\
         "\n• Use university resources to connect with industry professionals."
+    @step.update_attribute(:step_id, 2)
     @step.save!
 
     # STEP3: Conferences
@@ -66,6 +68,8 @@ module TimelineHelper
         "A Conference Junkie\xE2\x80\x99s Guide to Attending (and Enjoying) Conferences</a>"\
         "\n<a href=\"https://www.cio.com/article/3344362/your-guide-to-top-tech-conferences-2019.html\">Your guide to top tech conferences 2019</a>"\
         "\n<a href=\"https://medium.com/coder-snorts/a-beginners-guide-to-tech-conferences-76c1ed21d024\">A Beginner’s Guide to Tech Conferences</a>")
+    @step.update_attribute(:step_id, 3)
+    @step.save!
 
     # STEP4: Write a resume
     @step = @user.steps.create(content: '<h1 id="step4">Step 4: Write a resume</h1>')
@@ -86,6 +90,7 @@ module TimelineHelper
     '<a href="http://dierkers.com/docs/Resume.pdf">#2</a>,'\
     '<a href="https://maeganclawges.com/MaeganClawgesResume.pdf">#3</a>,'\
     '<a href="http://macalinao.github.io/resume/resume.pdf">#4</a>'
+    @step.update_attribute(:step_id, 4)
     @step.save!
 
     # "Cover letters: Quantity vs Quality"
@@ -97,6 +102,7 @@ module TimelineHelper
         "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 1</a>"\
         "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 2</a>"\
         "\nNote: If you are applying to 100+ positions and getting no call-backs stop applying and get more feedback")
+    @step.update_attribute(:step_id, 5)
     @step.save!
 
     # STEP6: Learn what employer expects
@@ -132,17 +138,18 @@ module TimelineHelper
     end
 
     @step.extra << "\n• Online resources:"\
-    "\n- <a href=\"https://www.firecode.io\">Firecode</a>"\
-    "\n- <a href=\"https://www.leetcode.com\">Leetcode</a>"\
-    "\n- <a href=\"https://www.hackerrank.com\">HackerRank</a>"\
-    "\n- <a href=\"https://www.geeksforgeeks.org\">GeeksforGeeks</a>"\
-    "\n- <a href=\"https://github.com/alex/what-happens-when#the-g-key-is-pressed\">What happens when...</a>"\
-    "\n- <a href=\"https://youtu.be/YJZCUhxNCv8\">'How to Get a Job at the Big 4' by Sean Lee</a>"\
-    "\n- <a href=\"https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU\">Curated List of Top 100 LeetCode Questions</a>"\
-    "\n- <a href=\"https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms\">Visualizing Four Key Technical Interview Algorithms</a>"\
-    "\n• Books:"\
-    "\n- <a href=\"https://elementsofprogramminginterviews.com\">Elements of Programming Interviews</a>"\
-    "\n- <a href=\"https://www.crackingthecodinginterview.com\">Cracking the Coding Interview</a>"
+      "\n- <a href=\"https://www.firecode.io\">Firecode</a>"\
+      "\n- <a href=\"https://www.leetcode.com\">Leetcode</a>"\
+      "\n- <a href=\"https://www.hackerrank.com\">HackerRank</a>"\
+      "\n- <a href=\"https://www.geeksforgeeks.org\">GeeksforGeeks</a>"\
+      "\n- <a href=\"https://github.com/alex/what-happens-when#the-g-key-is-pressed\">What happens when...</a>"\
+      "\n- <a href=\"https://youtu.be/YJZCUhxNCv8\">'How to Get a Job at the Big 4' by Sean Lee</a>"\
+      "\n- <a href=\"https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU\">Curated List of Top 100 LeetCode Questions</a>"\
+      "\n- <a href=\"https://jeremyaguilon.me/blog/visualizing_four_key_interview_algorithms\">Visualizing Four Key Technical Interview Algorithms</a>"\
+      "\n• Books:"\
+      "\n- <a href=\"https://elementsofprogramminginterviews.com\">Elements of Programming Interviews</a>"\
+      "\n- <a href=\"https://www.crackingthecodinginterview.com\">Cracking the Coding Interview</a>"
+    @step.update_attribute(:step_id, 6)
     @step.save!
 
     # STEP7: Apply for a job
@@ -189,18 +196,20 @@ module TimelineHelper
       "doesn't matter if you are applying to Google or a local startup. "\
       "So your main focus should be on building connections "\
       "(via meetups, conferences or an active online presence) "\
-      "and utilizing your university's career center."
+      "and utilizing your university's career center."      
+    @step.update_attribute(:step_id, 7)
     @step.save!
 
-    @step = @user.steps.create(:content=>"<h1>Bonus: Salary negotiation resources</h1>")
+    @step = @user.steps.create(:content=>'<h1 id="step8">Bonus: Salary negotiation resources</h1>')
     @step.update_attribute(:extra, "\n- <a href=\"https://medium.com/@helen_zhang/how-i-got-an-extra-35-000-by-negotiating-my-first-job-offer-beeb0620c616\">"\
-    "How I got an extra $35,000 by negotiating my first job offer</a>"\
-    "\n- <a href=\"https://www.levels.fyi\">Levels.fyi</a>"\
-    "\n- <a href=\"https://blog.usejournal.com/i-interviewed-at-six-top-companies-in-silicon-valley-in-six-days-and-stumbled-into-six-job-offers-fe9cc7bbc996\">"\
-    "I interviewed at six top companies in Silicon Valley in six days, and stumbled into six job offers</a>"\
-    "\n- <a href=\"https://blog.usejournal.com/how-i-negotiated-a-software-engineer-offer-in-silicon-valley-"\
-    "f11590f5c656?fbclid=IwAR3ZxSC446r6XOeg868-Bi0fzE5KfNLVyhy8Yri5oqwqNfphrCxKaOnqvqU\">"\
-    "How I negotiated a $300,000 job offer in Silicon Valley</a>")
+      "How I got an extra $35,000 by negotiating my first job offer</a>"\
+      "\n- <a href=\"https://www.levels.fyi\">Levels.fyi</a>"\
+      "\n- <a href=\"https://blog.usejournal.com/i-interviewed-at-six-top-companies-in-silicon-valley-in-six-days-and-stumbled-into-six-job-offers-fe9cc7bbc996\">"\
+      "I interviewed at six top companies in Silicon Valley in six days, and stumbled into six job offers</a>"\
+      "\n- <a href=\"https://blog.usejournal.com/how-i-negotiated-a-software-engineer-offer-in-silicon-valley-"\
+      "f11590f5c656?fbclid=IwAR3ZxSC446r6XOeg868-Bi0fzE5KfNLVyhy8Yri5oqwqNfphrCxKaOnqvqU\">"\
+      "How I negotiated a $300,000 job offer in Silicon Valley</a>")
+      @step.update_attribute(:step_id, 8)
     @step.save!
     # @step = @user.steps.create(:content=>"If you lack people skills you have to be really good. Get some people skills")
     # @step = @user.steps.create(:content=>"If you apply to 100 places and don't get any callbacks, it's your resume (or where you are applying)")

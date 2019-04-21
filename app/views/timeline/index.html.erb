@@ -37,6 +37,7 @@
   <% @user.steps.each do |element| %>
   <article>
     <%= element.content.html_safe %>
+    <%= button_to "Mark as Done", { action: "create" }, :name => element.step_id, :class => 'button_shared' if session[:userinfo].present? && element.status !='done'  %>
     <%= simple_format element.extra %>
   </article>
   <% end %>

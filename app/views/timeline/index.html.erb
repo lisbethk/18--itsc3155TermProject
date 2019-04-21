@@ -34,13 +34,53 @@
 </blockquote>
 
 <div id="timeline">
-  <% @user.steps.each do |element| %>
   <article>
-    <%= element.content.html_safe %>
-    <%= button_to "Mark as Done", { action: "create" }, :name => element.step_id, :class => 'button_shared' if session[:userinfo].present? && element.status !='done'  %>
-    <%= simple_format element.extra %>
+    <% step = @user.steps.find_by step_id:'1' %>
+    <%= step.content.html_safe %>
+    <%= button_to "Mark as Done", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status !='done'  %>
+    <%= button_to "Undo", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status =='done'  %>
+    <%= simple_format step.extra %>
+
+    <% step = @user.steps.find_by step_id:'2' %>
+    <%= step.content.html_safe %>
+    <%= button_to "Mark as Done", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status !='done'  %>
+    <%= button_to "Undo", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status =='done'  %>
+    <%= simple_format step.extra %>
+
+    <% step = @user.steps.find_by step_id:'3' %>
+    <%= step.content.html_safe %>
+    <%= button_to "Mark as Done", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status !='done'  %>
+    <%= button_to "Undo", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status =='done'  %>
+    <%= simple_format step.extra %>
+
+    <% step = @user.steps.find_by step_id:'4' %>
+    <%= step.content.html_safe %>
+    <%= button_to "Mark as Done", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status !='done'  %>
+    <%= button_to "Undo", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status =='done'  %>
+    <%= simple_format step.extra %>
+
+    <% step = @user.steps.find_by step_id:'5' %>
+    <%= step.content.html_safe %>
+    <%= button_to "Mark as Done", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status !='done'  %>
+    <%= button_to "Undo", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status =='done'  %>
+    <%= simple_format step.extra %>
+
+    <% step = @user.steps.find_by step_id:'6' %>
+    <%= step.content.html_safe %>
+    <%= button_to "Mark as Done", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status !='done'  %>
+    <%= button_to "Undo", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status =='done'  %>
+    <%= simple_format step.extra %>
+
+    <% step = @user.steps.find_by step_id:'7' %>
+    <%= step.content.html_safe %>
+    <%= button_to "Mark as Done", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status !='done'  %>
+    <%= button_to "Undo", { action: "create" }, :name => step.step_id, :class => 'button_shared' if session[:userinfo].present? && step.status =='done'  %>
+    <%= simple_format step.extra %>
+
+    <% step = @user.steps.find_by step_id:'8' %>
+    <%= step.content.html_safe %>
+    <%= simple_format step.extra %>
   </article>
-  <% end %>
 </div>
 
 <div class="links_centered">

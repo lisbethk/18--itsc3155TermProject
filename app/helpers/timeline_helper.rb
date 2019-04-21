@@ -96,7 +96,7 @@ module TimelineHelper
         "\n• Post your resume on resume advice threads:"\
         "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 1</a>"\
         "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 2</a>"\
-        "\nNote: If you are applying to 100+ positions and getting no call-backs stop and get more feedback"
+        "\nNote: If you are applying to 100+ positions and getting no call-backs stop applying and get more feedback"
     @step.save!
 
     # STEP6: Learn what employer expects
@@ -106,7 +106,17 @@ module TimelineHelper
           "\n• You are expected to be comfortable with recursion, dynamic programming, backtracking, and graphs."\
           "\n• Practice coding on a whiteboard and talking about what you are doing."\
           "\nYour ability to communicate clearly matters probably as much as your ability to actually solve the problem."\
-          "\n• For a new grad interview it is unlikely that you will get asked system design questions.")
+          "\n• For a new grad interview it is unlikely that you will get asked system design questions."\
+          "\n• Learn more:"\
+          "\n- <a href=\"https://github.com/CourtneyThurston/microsoft-internships\">Microsoft internships</a>"\
+          "\n- <a href=\"https://medium.com/@helen_zhang/the-4-week-plan-to-nailing-your-next-coding-technical-interview-internship-level-c5368c47e1d\">"\
+          "The 4 Week Plan to Nailing Your Next Coding & Technical Interview</a>"\
+          "\n- <a href=\"https://medium.com/@helen_zhang/breaking-it-down-how-to-approach-any-technical-interview-problem-ce82c052f6a1\">"\
+          "Breaking It Down: How to approach any technical interview problem</a>")
+      if @user.standing == "freshman"
+        @step.extra << "\n- <a href=\"https://medium.com/datadriveninvestor/everything-you-need-to-know-about-interviewing-for-microsoft-explorer-3bf9ff6dc2e\">"\
+        "Everything you need to know about interviewing for Microsoft Explorer</a>"
+      end
     else
       @step.update_attribute(:extra, '• Unless you are applying to bigger tech companies (Google/Facebook/Microsoft) or unicorns (Airbnb, Pinterest, etc) '\
       'it is unlikely you will ever be asked a <a href="https://leetcode.com/problems/lru-cache/">leetcode hard</a> in an interview.'\
@@ -137,39 +147,61 @@ module TimelineHelper
 
     # STEP7: Apply for a job
     @step = @user.steps.create(content: '<h1 id="step7">Step 7: Apply</h1>')
-    if @user.goal == 'Internship'
-      if intern_season
-        @step.update_attribute(:extra, '• Apply for internships')
-      else
-        @step.update_attribute(:extra, '• Focus on summer research; '\
-          "\n• Apply for local internships;"\
-          "\n• Look into summer projects;"\
-          "\n• Consider fall or winter internships")
+    if @user.goal == 'internship'
+      @step.update_attribute(:extra, '• Many big companies start their recruiting season in August and finish it by December. '\
+        "Even with the most amazing resume if you apply late at best you get an interview spot the following year."\
+        "• Sometimes it is easier to get a coding challenge or a phone screen from a big company "\
+        "so consider applying even if you don't think you have enough experience.")
+        if @user.experience == "hasInternship"
+          @step.extra << "\n• Internships is the best time to explore your interests and try out different things. "\
+          "So even if you loved a company you interned at seriously consider applying to other places. "\
+          "If you worked for a corporation try out start up life for a summer or vice versa. "\
+          "Having diverse experience will help you make an informed decision when it comes to accepting a full-time offer."\
+        else
+          @step.extra << "\n• Focus on local companies and especially companies that come to your school to recruit. "\
+          "It is much easier to get where you want to be once you have experience, "\
+          "so seek out every opportunity you can. It will help you in the long run."
+        end
+        @step.extra << "\n- <a href=\"https://www.intern.supply/\">Intern.Supply</a>"
+          
+      if !intern_season
+        @step.extra << '• Even though you are late in the hiring season it is worth seeing if anyone is hiring.'\
+          "\n• Contact your professors to see if there are any summer research opportunities available."\
+          "\n• Find a summer project that you could focus on if you don't find anything."\
+          "\n• Consider applying for Fall or Spring internships. "\
+          "You'll have to take a semester off school but the experience could be worth it."
       end
-    elsif @user.goal == 'LocalJob'
-      if @user.standing == 'Junior' && intern_season
-        @step.update_attribute(:extra, 'Apply for internships')
-      else
-        @step.update_attribute(:extra, 'Apply for local jobs')
-      end
-    elsif @user.goal == 'Google'
+    
+    elsif @user.goal == 'localJob'      
+        @step.update_attribute(:extra, '• Apply for local jobs')
+      
+    elsif @user.goal == 'big4'
       if @user.standing == 'Senior' || @user.standing == 'NonTradidional'
-        @step.update_attribute(:extra, 'Apply for new grad roles')
+        @step.update_attribute(:extra, '• Apply for new grad roles')
       else
-        @step.update_attribute(:extra, '• The easiest path to a full-time role at a big tech company is an intern conversion')
+        @step.update_attribute(:extra, '• The easiest path to a full-time role at a big tech company is an intern conversion.')
       end
-    else
-      @step.update_attribute(:extra, 'Apply for jobs')
+      @step.extra << "\n• Watch <a href=\"https://youtu.be/YJZCUhxNCv8\">'How to Get a Job at the Big 4' by Sean Lee</a> "\
+        "to learn more about getting a job at the Big 4."   
     end
 
     @step.extra << "\n• Cold applying with always have a lower response rate, "\
-      "doesn't matter if you are applying to Google or a local startup."\
-      "\n• Your main focus should be on building connections "\
+      "doesn't matter if you are applying to Google or a local startup. "\
+      "So your main focus should be on building connections "\
       "(via meetups, conferences or an active online presence) "\
       "and utilizing your university's career center."
     @step.save!
 
-    # FINALLY:
+    @step = @user.steps.create(:content=>"<h1>Bonus: Salary negotiation resources</h1>")
+    @step.update_attribute(:extra, "\n- <a href=\"https://medium.com/@helen_zhang/how-i-got-an-extra-35-000-by-negotiating-my-first-job-offer-beeb0620c616\">"\
+    "How I got an extra $35,000 by negotiating my first job offer</a>"\
+    "\n- <a href=\"https://www.levels.fyi\">Levels.fyi</a>"\
+    "\n- <a href=\"https://blog.usejournal.com/i-interviewed-at-six-top-companies-in-silicon-valley-in-six-days-and-stumbled-into-six-job-offers-fe9cc7bbc996\">"\
+    "I interviewed at six top companies in Silicon Valley in six days, and stumbled into six job offers</a>"\
+    "\n- <a href=\"https://blog.usejournal.com/how-i-negotiated-a-software-engineer-offer-in-silicon-valley-"\
+    "f11590f5c656?fbclid=IwAR3ZxSC446r6XOeg868-Bi0fzE5KfNLVyhy8Yri5oqwqNfphrCxKaOnqvqU\">"\
+    "How I negotiated a $300,000 job offer in Silicon Valley</a>")
+
     # @step = @user.steps.create(:content=>"If you lack people skills you have to be really good. Get some people skills")
     # @step = @user.steps.create(:content=>"If you apply to 100 places and don't get any callbacks, it's your resume (or where you are applying)")
     # @step = @user.steps.create(:content=>"If you get 10 phone interviews and no in-person invites, do mock interviews. Improve your people skills. Get honest feedback")
@@ -178,6 +210,6 @@ module TimelineHelper
 
   def intern_season
     time = Time.new
-    time.month > 5
+    time.month > 4
   end
 end

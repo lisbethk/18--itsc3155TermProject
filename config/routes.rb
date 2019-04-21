@@ -1,8 +1,8 @@
-Rails.application.routes.draw do
-  resources :goals
+Rails.application.routes.draw do  
   resources :class_standing, only: %i[index create]
-  resources :experience
-  resources :timeline, only: [:index]
+  resources :experience, only: %i[index create]
+  resources :goals, only: %i[index create]
+  resources :timeline, only: %i[index update]
 
   get 'auth/auth0/callback' => 'auth0#callback'
   get 'auth/failure' => 'auth0#failure'

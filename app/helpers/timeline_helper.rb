@@ -92,11 +92,11 @@ module TimelineHelper
 
     # STEP5: Get resume feedback
     @step = @user.steps.create(content: '<h1 id="step5">Step 5: Get resume feedback</h1>')
-    @step.extra = "• Use your university's career center"\
+    @step.update_attribute(:extra, "• Use your university's career center"\
         "\n• Post your resume on resume advice threads:"\
         "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 1</a>"\
         "\n<a href=\"https://www.reddit.com/r/cscareerquestions/search?q=author%3AAutoModerator+Resume+Advice+Thread&restrict_sr=on&sort=new&t=all\">Resume thread 2</a>"\
-        "\nNote: If you are applying to 100+ positions and getting no call-backs stop applying and get more feedback"
+        "\nNote: If you are applying to 100+ positions and getting no call-backs stop applying and get more feedback")
     @step.save!
 
     # STEP6: Learn what employer expects
@@ -201,7 +201,7 @@ module TimelineHelper
     "\n- <a href=\"https://blog.usejournal.com/how-i-negotiated-a-software-engineer-offer-in-silicon-valley-"\
     "f11590f5c656?fbclid=IwAR3ZxSC446r6XOeg868-Bi0fzE5KfNLVyhy8Yri5oqwqNfphrCxKaOnqvqU\">"\
     "How I negotiated a $300,000 job offer in Silicon Valley</a>")
-
+    @step.save!
     # @step = @user.steps.create(:content=>"If you lack people skills you have to be really good. Get some people skills")
     # @step = @user.steps.create(:content=>"If you apply to 100 places and don't get any callbacks, it's your resume (or where you are applying)")
     # @step = @user.steps.create(:content=>"If you get 10 phone interviews and no in-person invites, do mock interviews. Improve your people skills. Get honest feedback")

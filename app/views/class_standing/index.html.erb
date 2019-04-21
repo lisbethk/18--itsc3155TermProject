@@ -10,6 +10,6 @@
 </div>
 <div class="center"><span class="page_count">1/3</span></div>
 <div class="links_centered">
-  <%= link_to "Login to save your progress", "javascript:void(0)", { class: "button_shared", href: "/auth/auth0" } unless session[:userinfo].present? %>
+  <%= link_to "Login/Sign Up", "javascript:void(0)", { id: "login_button", class: "button_shared", href: "/auth/auth0" } unless session[:userinfo].present? %>
 </div>
 <br>

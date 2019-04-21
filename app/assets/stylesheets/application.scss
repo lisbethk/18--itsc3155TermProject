@@ -83,6 +83,14 @@ html {
   color: white;
 }
 
+#login_button {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  width: 20%;
+  margin-top: -2.5em;
+}
+
 .question {
   text-align: center;
   font-family: Alegreya;
